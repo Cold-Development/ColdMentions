@@ -1,0 +1,67 @@
+# General settings
+mentions:
+  enabled: true # Enables or disables the general mention functionality
+  color: '&#FF0000' # The color of the mention (default is red)
+
+settings:
+  prefix: "&8「&#00D6FFC&#00C3FFo&#00B0FFl&#009EFFd&#008BFFM&#0078FFe&#0065FFn&#0052FFt&#003FFFi&#002DFFo&#001AFFn&#0007FFs&8」&7» " # The prefix that appears before each message in chat
+
+# Cooldown settings for mentions
+cooldown:
+  enabled: true # Enables or disables the mention cooldown
+  time: 5 # Cooldown time in seconds
+
+# Custom messages
+messages:
+  config_reloaded: '&7Config &areloaded&f!' # Message displayed when the config is reloaded
+  mention_enabled_by_admin: '&cYour mentions have been enabled by an admin.' # Message sent when mentions are enabled by an admin
+  mention_disabled_by_admin: '&cYour mentions have been disabled by an admin.' # Message sent when mentions are disabled by an admin
+  mention_toggled_for_player: '&7Mentions status toggled for %player%.' # Message sent when mention status is toggled for a player
+  player_not_found: '&cPlayer not found!' # Message displayed when the specified player is not found
+  no_permission: '&cYou don''t have permission to do that.' # Message shown when a player doesn't have the necessary permissions
+  invalid_usage: '&cInvalid command usage.' # Message shown when a command is used incorrectly
+  ignore_added: '&7You are now ignoring mentions from %player%.' # Message shown when a player starts ignoring mentions from another player
+  ignore_removed: '&7You are no longer ignoring mentions from %player%.' # Message shown when a player stops ignoring mentions from another player
+  mention_cooldown: "&cYou must wait %time% seconds before mentioning again." # Message displayed when the player tries to mention someone before the cooldown period has expired
+  update_notification: "&cA new version &4%latest_version%&c was found &4(your version %current_version%)&7 &cUpdate here: %update_link%"
+
+# Sound settings for mentions
+#   Check out this link if you want to change default sounds
+#     https://github.com/Cold-Development/ColdMentions/wiki/Minecraft-sounds-for-ColdMentions
+sounds:
+  enabled: true # Enable or disable sounds when someone is mentioned
+  mention_sound: ENTITY_PLAYER_LEVELUP # The sound played when someone is mentioned
+  admin_mention_sound: ENTITY_ENDER_DRAGON_GROWL # The sound played when an admin mentions someone
+  mention_volume: 1.0 # The volume of the mention sound (range: 0.0 - 1.0)
+  admin_mention_volume: 1.0 # The volume of the admin mention sound (range: 0.0 - 1.0)
+
+# Title displayed on the screen
+titles:
+  enabled: true # Enables or disables titles displayed on the screen
+  fade_in: 10 # Duration of the fade-in effect for the title in ticks
+  stay: 70 # Duration for which the title remains visible
+  fade_out: 20 # Duration of the fade-out effect for the title
+
+  # Settings for regular players
+  player:
+    title_text: '&#FF4500%luckperms_prefix%&4%player% &#FF4500mentioned you!' # The message displayed as a title for players when mentioned
+    subtitle_text: '&#FF0000Check the chat for details!' # The message displayed as a subtitle for players when mentioned
+
+  # Settings for administrators
+  admin:
+    title_text: '&#FF4500%luckperms_prefix%&4%player% &#FF4500mentioned you!' # The message displayed as a title for admins when mentioned
+    subtitle_text: '&#FF0000C&#FF0202h&#FE0505e&#FE0707c&#FE0A0Ak &#FD0F0Ft&#FC1111h&#FC1414e
+      &#FB1919c&#FB1B1Bh&#FB1E1Ea&#FA2020t &#F92525f&#F92828o&#F92A2Ar &#F82F2Fa&#F83131d&#F73434m&#F73636i&#F63939n
+      &#F63E3Em&#F54040e&#F54343s&#F54545s&#F44848a&#F44A4Ag&#F34D4De&#F34F4F!' # A more stylized message displayed as a subtitle for admins when mentioned
+
+  # Settings for @everyone mention
+  everyone:
+    title_text: '&#FF4500%luckperms_prefix%&4%player% &#FF4500mentioned everyone!' # The message displayed as a title when an admin uses @everyone to mention all players
+    subtitle_text: '&#FF0000Check the chat for details!' # The message displayed as a subtitle when an admin uses @everyone to mention all players
+
+# Action bar configuration
+actionbar:
+  enabled: true  # Enables or disables messages in ActionBar
+  message_admin: "&#00FF00%luckperms_prefix%&7%player%! mentioned you"
+  message_player: "&#00FF00%luckperms_prefix%&7%player% mentioned you!"
+  message_everyone: "&#00FF00%luckperms_prefix%&7%player% mentioned @everyone!"
