@@ -1,0 +1,24 @@
+name: ColdMentions
+version: '${project.version}'
+main: dev.padrewin.coldmentions.ColdMentions
+api-version: '1.20'
+authors: [ padrewin ]
+website: https://github.com/sponsors/padrewin
+commands:
+  cm:
+    description: ColdMentions plugin commands
+    usage: /cm <help|reload|toggle|ignore>
+    aliases: [cm, cmention, cmentions, coldmentions, mentions]
+permissions:
+  coldmentions.admin:
+    description: Grants full access to ColdMentions commands and features, including bypassing mention cooldown.
+    default: op
+    children:
+      coldmentions.ignore: true
+      coldmentions.everyone: true
+  coldmentions.ignore:
+    description: Allows players to ignore mentions from other players.
+    default: false
+  coldmentions.everyone:
+    description: Allows the player to mention everyone in chat using @everyone.
+    default: op
