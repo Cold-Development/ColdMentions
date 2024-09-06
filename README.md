@@ -139,3 +139,6 @@ ColdMentions includes an automatic update checker for admins. When an admin logs
 2. Place the plugin JAR file in your server's `plugins` folder.
 3. Start your server to generate the `config.yml` file.
 4. Customize the configuration to your liking and reload the plugin with `/cm reload`.
+
+#### Downloads:
+![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/Cold-Development/ColdMentions/total?color=green)
