@@ -6,7 +6,7 @@
 
     <groupId>dev.padrewin</groupId>
     <artifactId>ColdMentions</artifactId>
-    <version>1.1</version>
+    <version>1.2</version>
     <packaging>jar</packaging>
 
     <name>ColdMentions</name>
@@ -38,6 +38,14 @@
                         <goals>
                             <goal>shade</goal>
                         </goals>
+                        <configuration>
+                            <relocations>
+                                <relocation>
+                                    <pattern>dev.padrewin.coldplugin</pattern>
+                                    <shadedPattern>dev.padrewin.moneypouchdeluxe.libs.coldplugin</shadedPattern>
+                                </relocation>
+                            </relocations>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
@@ -51,6 +59,10 @@
     </build>
 
     <repositories>
+        <repository>
+            <id>com.github.coldplugin</id>
+            <url>https://maven.pkg.github.com/Cold-Development/ColdDev</url>
+        </repository>
         <repository>
             <id>spigotmc-repo</id>
             <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
@@ -66,6 +78,12 @@
     </repositories>
 
     <dependencies>
+        <dependency>
+            <groupId>dev.padrewin</groupId>
+            <artifactId>coldplugin</artifactId>
+            <version>1.3.2</version>
+            <scope>compile</scope>
+        </dependency>
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>

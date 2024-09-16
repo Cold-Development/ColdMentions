@@ -3,29 +3,39 @@ package dev.padrewin.coldmentions;
 import dev.padrewin.coldmentions.commands.Commands;
 import dev.padrewin.coldmentions.database.DatabaseManager;
 import dev.padrewin.coldmentions.listeners.ChatListener;
-import dev.padrewin.coldmentions.listeners.JoinListener;
 import dev.padrewin.coldmentions.utils.ActionBar;
+import dev.padrewin.coldplugin.ColdPlugin;
+import dev.padrewin.coldplugin.manager.Manager;
+import dev.padrewin.coldplugin.manager.PluginUpdateManager;
 import org.bukkit.Bukkit;
-import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ColdMentions extends JavaPlugin {
+public class ColdMentions extends ColdPlugin {
 
+    private ColdMentions instance;
     private Commands commands;
     private DatabaseManager databaseManager;
-    private UpdateChecker updateChecker;
     private ActionBar actionBar;
 
     String ANSI_RESET = "\u001B[0m";
-    String ANSI_AQUA = "\u001B[36m"; // Culoarea Aqua
-    String ANSI_PURPLE = "\u001B[35m"; // Culoarea Purple
+    String ANSI_AQUA = "\u001B[36m";
+    String ANSI_PURPLE = "\u001B[35m";
+
+    public ColdMentions() {
+        super("Cold-Development", "ColdMentions", 23386, null, null, null);
+        instance = this;
+    }
 
     @Override
-    public void onEnable() {
+    public void enable() {
+        getManager(PluginUpdateManager.class);
+        instance = this;
         try {
             databaseManager = new DatabaseManager(this, "coldmentions.db");
             getLogger().info("\u001B[32mDatabase path: " + new File(getDataFolder(), "coldmentions.db").getAbsolutePath() + "\u001B[0m");
@@ -33,9 +43,6 @@ public class ColdMentions extends JavaPlugin {
             getLogger().severe("Failed to initialize the database!");
             e.printStackTrace();
         }
-
-        updateChecker = new UpdateChecker(this, 119430); // ID-ul resursei Spigot
-        updateChecker.checkForUpdateAndLog();
 
         String name = getDescription().getName();
         getLogger().info("");
@@ -55,12 +62,11 @@ public class ColdMentions extends JavaPlugin {
         getCommand("cm").setExecutor(this.commands);
 
         getServer().getPluginManager().registerEvents(new ChatListener(this), this);
-        Bukkit.getPluginManager().registerEvents(new JoinListener(this), this);
         this.actionBar = new ActionBar(this);
     }
 
     @Override
-    public void onDisable() {
+    public void disable() {
         if (databaseManager != null) {
             databaseManager.closeConnection();
         }
@@ -69,12 +75,13 @@ public class ColdMentions extends JavaPlugin {
         getLogger().info("");
     }
 
-    public DatabaseManager getDatabaseManager() {
-        return databaseManager;
+    @Override
+    protected @NotNull List<Class<? extends Manager>> getManagerLoadPriority() {
+        return List.of();
     }
 
-    public UpdateChecker getUpdateChecker() {
-        return updateChecker;
+    public DatabaseManager getDatabaseManager() {
+        return databaseManager;
     }
 
     public Commands getCommands() {
