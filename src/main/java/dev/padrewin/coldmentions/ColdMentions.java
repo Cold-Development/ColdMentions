@@ -4,10 +4,9 @@ import dev.padrewin.coldmentions.commands.Commands;
 import dev.padrewin.coldmentions.database.DatabaseManager;
 import dev.padrewin.coldmentions.listeners.ChatListener;
 import dev.padrewin.coldmentions.utils.ActionBar;
-import dev.padrewin.coldplugin.ColdPlugin;
-import dev.padrewin.coldplugin.manager.Manager;
-import dev.padrewin.coldplugin.manager.PluginUpdateManager;
-import org.bukkit.Bukkit;
+import dev.padrewin.colddev.ColdPlugin;
+import dev.padrewin.colddev.manager.Manager;
+import dev.padrewin.colddev.manager.PluginUpdateManager;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
@@ -53,7 +52,7 @@ public class ColdMentions extends ColdPlugin {
         getLogger().info(ANSI_AQUA + " \\____\\___/|_____|____/ " + ANSI_RESET);
         getLogger().info("    " + ANSI_AQUA + name + " v" + getDescription().getVersion() + ANSI_RESET);
         getLogger().info(ANSI_PURPLE + "    Author(s): " + ANSI_PURPLE + getDescription().getAuthors().get(0) + ANSI_RESET);
-        getLogger().info(ANSI_AQUA + "    (c) Cold Development. All rights reserved." + ANSI_RESET);
+        getLogger().info(ANSI_AQUA + "    (c) Cold Development ❄" + ANSI_RESET);
         getLogger().info("");
 
         saveDefaultConfig();
